@@ -10,10 +10,10 @@
 
 ### Clean, Fast, Readable and Memory effecient Code
 
-> - [x] *Using DefaultDict to Accumulate Votes from all different bills
-> - [x] *Using Counter to count all senators with same voting patterns
-> - [x] *Using python comprehentions to make business logic clearer
-> - [x] *Using Iterator Protocols to save memory and increase execution time
-> - [x] *Improving Function definition and Tuple structures for comeback code readibility
+> - [x] Using DefaultDict to Accumulate Votes from all different bills
+> - [x] Using Counter to count all senators with same voting patterns
+> - [x] Using python comprehentions to make business logic clearer
+> - [x] Using Iterator Protocols to save memory and increase execution time
+> - [x] Improving Function definition and Tuple structures for comeback code readibility
 
 ###### This project is inspired by Raymong Hettinger
