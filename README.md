@@ -24,7 +24,7 @@ Clustering American Congress Senates'(same/different parties) based on each indi
 
 ## Output
 -------------- CLUSTER 1 --------------
-Senator(name='Sen. James Lankford [R]', party='Republican', state='OK')
+Senator(name='Sen. James Lankford [R]', party='Republican', state='OK')\
 Senator(name='Sen. Dan Sullivan [R]', party='Republican', state='AK')
 Senator(name='Sen. Roger Wicker [R]', party='Republican', state='MS')
 Senator(name='Sen. John Boozman [R]', party='Republican', state='AR')
