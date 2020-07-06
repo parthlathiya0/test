@@ -1,14 +1,15 @@
-# Congress_Voting_Analysis
+# Petrol Pipeline Anamoly Detection
 
-## Data Analysis
-Clustering American Congress Senates'(same/different parties) based on each individuals' voting history for different acts in the year 2016
+## Problem
+Detect the position of anamolies/flaws in petrol pipelines(each pipe) using a device called "Pig" that travels inside the pipes.
 
-### Algorithm in english
-    - Pick arbituary point as guesses for the center of each group
-    - Assign all the data points to the closest maching group
-    - Within each group, average the points to get to a new guess
-    - For the center of the group
-    - Repeat multiple times: assign data and average the points
+### Business Understanding
+    - A long Petrol pipeline is not a singular material. It is a serial combination of smaller pipes fused with wielding process.
+    - Pipeline pigging is a concept in pipeline maintenance that involves the use of devices known as pigs, which clean pipelines and are capable of checking pipeline condition.
+    - This Pig will inspects the pipeline by sending magnetic flux into the walls of the pipe, detecting flaws in the pipeline.
+    - Pipeline pigging is used in number of industries including oil & gas, lube oil, chemical plants and hygienic applications such as pharmaceutical or food.
+
+![alt text](https://www.google.com/search?q=adsf&safe=active&sxsrf=ALeKk023tu3xZKJY_LzdkMkoSZvOgtOtQA:1594054267143&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjX1OHyirnqAhXWc30KHV1LBJMQ_AUoAnoECAwQBA&biw=1440&bih=740#imgrc=qD1rgGhQlsU8KM)
 
 ### Clean, Fast, Readable and Memory effecient Code
 
