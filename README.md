@@ -3,6 +3,8 @@
 ## Problem
 Detect the position of anamolies/flaws in petrol pipelines(each pipe) using a device called "Pig" that travels inside the pipes.
 
+<img src='Blog-Become-a-Book-Banner.jpg'>
+
 ### Business Understanding
     - A long Petrol pipeline is not a singular material. It is a serial combination of smaller pipes fused with wielding process.
     - Pipeline pigging is a concept in pipeline maintenance that involves the use of devices known as pigs, which clean pipelines and are capable of checking pipeline condition.
