@@ -3,6 +3,7 @@
 ## Problem
 Detect the position of anamolies/flaws in petrol pipelines(each pipe) using a device called "Pig" that travels inside the pipes.
 
+[notebook](anamoly-detection-using-image.ipynb)
 <img src='Blog-Become-a-Book-Banner.jpg'>
 
 ### Business Understanding
