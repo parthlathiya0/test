@@ -5,7 +5,7 @@ Detect the **position** of anamolies in petrol pipelines using data generated fr
 - Detecting **Wielding**
 - Visualising **Metal loss** and or dents
 
-<img src='Images/process.gif'/>
+<img src='process.gif'/>
 
 ### About Data
 - Data is in **binary** format saved in - 'captured_data.bin' file, captured from 84 sensors for 50_000 milliseconds
@@ -22,8 +22,7 @@ Detect the **position** of anamolies in petrol pipelines using data generated fr
 - Edge detection using **Sobel**, OpenCV.
 
 ### Different Approaches Used
-- [ ] Approach 1: Using Various Statistical methods like InterQuartile Range, Z-score, etc.
-
+- [ ] Approach 1: Using Various Statistical methods like InterQuartile Range, Z-score, etc.     
 - [x] Approach 2: By Filtering anamolies with Sobel Derivatives,Image Processing in OpenCV.
 
 [Approach 1](Notebooks/anamoly-detection.ipynb) | [Approach 2](Notebooks/anamoly-detection-using-image.ipynb)
@@ -46,11 +45,9 @@ Detect the **position** of anamolies in petrol pipelines using data generated fr
 |. | . | ... |
 |. | . | ... |
 
-<<<<<<< HEAD
 =======
 <img src='Images/Visualised-Pipes/Analysed/Pipe-8.png' />
 <img src='Images/Visualised-Pipes/Wield-Positions/Pipe-8.png'/>
->>>>>>> a6a176cd799a18162f31cb872e3db940c606a94b
 
 ## Conclusion
 We can detect position of wielded iron and also visualise the metal loss.
