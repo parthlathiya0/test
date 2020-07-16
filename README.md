@@ -1,49 +1,69 @@
-# Petrol Pipeline Anamoly Detection
+# Anamoly-Detection-Petroleum
 
 ## Problem
-Detect the position of anamolies/flaws in petrol pipelines(each pipe) using a device called "Pig" that travels inside the pipes.
+Detect the **position** of anamolies in petrol pipelines using data generated from a maintainance device called "Pig" that travels inside the pipeline.
+- Detecting **Wielding**
+- Visualising **Metal loss** and or dents
 
-[notebook](anamoly-detection-using-image.ipynb)
-<img src='Blog-Become-a-Book-Banner.jpg'>
+<img src='Images/process.gif'/>
 
-### Business Understanding
-    - A long Petrol pipeline is not a singular material. It is a serial combination of smaller pipes fused with wielding process.
-    - Pipeline pigging is a concept in pipeline maintenance that involves the use of devices known as pigs, which clean pipelines and are capable of checking pipeline condition.
-    - This Pig will inspects the pipeline by sending magnetic flux into the walls of the pipe, detecting flaws in the pipeline.
-    - Pipeline pigging is used in number of industries including oil & gas, lube oil, chemical plants and hygienic applications such as pharmaceutical or food.
+### About Data
+- Data is in **binary** format saved in - 'captured_data.bin' file, captured from 84 sensors for 50_000 milliseconds
+- Pigs directly captured/store data in `binary(.bin)` format
 
-![alt text](https://www.google.com/search?q=adsf&safe=active&sxsrf=ALeKk023tu3xZKJY_LzdkMkoSZvOgtOtQA:1594054267143&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjX1OHyirnqAhXWc30KHV1LBJMQ_AUoAnoECAwQBA&biw=1440&bih=740#imgrc=qD1rgGhQlsU8KM)
+### Data Analysis Insights with understanding
+- Data varies with time i.e., **Time Series data**
+- We can also see a **repeated pattern** of **flux** at times in all sensors.
+   
+#### Techniques 
+- **Normalised** data for comparision purpose.
+- **Aggregated(sum)** all sensors to amplify anamoly.
+- The **z-score** method is effective here with comparision to *Inter-Quartile Range* method as per the observations.
+- Edge detection using **Sobel**, OpenCV.
 
-### Clean, Fast, Readable and Memory effecient Code
+### Different Approaches Used
+- [ ] Approach 1: Using Various Statistical methods like InterQuartile Range, Z-score, etc.
 
-> - [x] Using DefaultDict to Accumulate Votes from all different bills
-> - [x] Using Counter to count all senators with same voting patterns
-> - [x] Using python comprehentions to make business logic clearer
-> - [x] Using Iterator Protocols to save memory and increase execution time
-> - [x] Improving Function definition and Tuple structures for comeback code readibility
+- [x] Approach 2: By Filtering anamolies with Sobel Derivatives,Image Processing in OpenCV.
 
-### Testing done using
-> - [x] Pytest
-> - [x] PyFlakes
+[Approach 1](Notebooks/anamoly-detection.ipynb) | [Approach 2](Notebooks/anamoly-detection-using-image.ipynb)
+
 
 ## Output
--------------- CLUSTER 1 --------------\
-Senator(name='Sen. James Lankford [R]', party='Republican', state='OK')\
-Senator(name='Sen. Dan Sullivan [R]', party='Republican', state='AK')\
-Senator(name='Sen. Roger Wicker [R]', party='Republican', state='MS')\
-Senator(name='Sen. John Boozman [R]', party='Republican', state='AR')\
-Senator(name='Sen. Claire McCaskill [D]', party='Democrat', state='MO')\
-Senator(name='Sen. David Vitter [R]', party='Republican', state='LA')\
-Senator(name='Sen. Barbara Mikulski [D]', party='Democrat', state='MD')\
-Senator(name='Sen. Patrick “Pat” Toomey [R]', party='Republican', state='PA')\
-Senator(name='Sen. Ron Johnson [R]', party='Republican', state='WI')\
-Senator(name='Sen. Daniel Coats [R]', party='Republican', state='IN')\
-Senator(name='Sen. John McCain [R]', party='Republican', state='AZ')\
-Senator(name='Sen. Bob Corker [R]', party='Republican', state='TN')\
-Senator(name='Sen. Heidi Heitkamp [D]', party='Democrat', state='ND')\
-Senator(name='Sen. Timothy Kaine [D]', party='Democrat', state='VA')
 
-## Insights
-We can observe that senates from different parties also have similar interests in certain bills other than members belonging to the same party. 
+|Pipe | Number|Outlier Position|
+|-----|-------|----------------|
+|0 | 0 | 624 |
+|1 | 0 | 678 |
+|2 | 1 | 5070 |
+|3 | 1 | 5117 |
+|4 | 1 | 8252 |
+|5 | 1 | 8286 |
+|6 | 2 | 11397 |
+|7 | 2 | 14990 |
+|8 | 3 | 15001 |
+|. | . | ... |
+|. | . | ... |
+|. | . | ... |
 
-###### Tribute Raymond Hettinger
+<<<<<<< HEAD
+=======
+<img src='Images/Visualised-Pipes/Analysed/Pipe-8.png' />
+<img src='Images/Visualised-Pipes/Wield-Positions/Pipe-8.png'/>
+>>>>>>> a6a176cd799a18162f31cb872e3db940c606a94b
+
+## Conclusion
+We can detect position of wielded iron and also visualise the metal loss.
+
+### Business Understanding
+- Many pipes are wielded together to form a pipeline.
+- Pigging is a concept in pipeline maintenance that involves the use of devices known as pigs, which clean pipelines and are capable of checking pipeline condition from inside.
+- Pigs inspects pipelines by receiving magnetic flux from the walls of the pipe.
+- Applications of Pigging include oil & gas, lube oil, chemical plants and hygienic applications such as pharmaceutical or food, etc.
+
+<div style="display:flex"><img src='Images/petrol-pipe.jpg' width=200 height=200/>
+<img src='Images/pig.jpg' width=200 height=200/></div>
+
+- Each "Pig"(here) has 84 sensors in circumference that captures data every millisecond while travelling in pipes. So this becomes a `time series problem` where each traversal time for each independent pipe is 5_000 milliseconds.
+
+###### Tribute @my Mentor Hasan Ali
