@@ -8,7 +8,7 @@ This project can **identify network attacts** with the help of packet data flow 
 
 ### About Data
 There are different types of network attacks such as Brute Force FTP, Brute Force SSH, DoS, Heartbleed, Web Attack, Infiltration, Botnet and DDoS. But, in this data set we have only provided **DoS attack**.
-- Data is in **csv** format, training samples: 519519 , features: 79
+- Data is in **csv** format, training samples: 519519 , features: 79 which contains ID, Label, Packet Info Features, Session Info Features.
 - It is an **Imbalanced Dataset**, around 60:40 ratio.
 
 ### Data Analysis Insights with understanding
@@ -21,7 +21,7 @@ There are different types of network attacks such as Brute Force FTP, Brute Forc
 
 
 ### Different Approaches Used
-- [ ] Approach 1: XGBoost     
+- [X] Approach 1: XGBoost     
 
 [Approach 1](Notebooks/anamoly-detection.ipynb) | [Approach 2](Notebooks/anamoly-detection-using-image.ipynb)
 
@@ -38,12 +38,10 @@ There are different types of network attacks such as Brute Force FTP, Brute Forc
 |. |. |...|
 |. |. |...|
 
-=======
-<img src='Images/Visualised-Pipes/Analysed/Pipe-8.png' />
-<img src='Images/Visualised-Pipes/Wield-Positions/Pipe-8.png'/>
 
 ## Conclusion
-We can detect different Network Attacks using patterns in Data Packet Flows in Network.
+Yes, we can indeed detect different Network Attacks using patterns in Data Packet Flows in Network.
+
 
 ### Business Understanding
 **DOS**: Flooding the targeted machine or resource with superfluous requests in an attempt to overload systems and prevent some or all legitimate requests from being fulfilled.
@@ -53,36 +51,4 @@ We can detect different Network Attacks using patterns in Data Packet Flows in N
 - a time delay between successive attacking packets.
 - HTTP slow POST DoS attack: sends large content length header and sends content very slow speed.- the attacker sends traffic consisting of complicated requests to the system.
 
-Features : Total 80 features are taken from network flow data,including Label. 
-
-ID : record id 
-Label : BENIGN(Normal),DoS(Attack)
-Packet info : 'Total Fwd Packets','Total Backward Packets', 'Total Length of Fwd Packets',
-	          'Total Length of Bwd Packets', 'Fwd Packet Length Max',
-	          'Fwd Packet Length Min', 'Fwd Packet Length Mean',
-	          'Fwd Packet Length Std', 'Bwd Packet Length Max',
-	          'Bwd Packet Length Min', 'Bwd Packet Length Mean',
-	          'Bwd Packet Length Std'
-Payload info : 'Flow Bytes/s', 'Flow Packets/s',
-              'Flow IAT Mean', 'Flow IAT Std', 'Flow IAT Max', 'Flow IAT Min',
-              'Fwd IAT Total', 'Fwd IAT Mean', 'Fwd IAT Std', 'Fwd IAT Max',
-              'Fwd IAT Min', 'Bwd IAT Total', 'Bwd IAT Mean', 'Bwd IAT Std',
-              'Bwd IAT Max', 'Bwd IAT Min', 'Fwd PSH Flags', 'Bwd PSH Flags',
-              'Fwd URG Flags', 'Bwd URG Flags', 'Fwd Header Length',
-              'Bwd Header Length', 'Fwd Packets/s', 'Bwd Packets/s',
-              'Min Packet Length', 'Max Packet Length', 'Packet Length Mean',
-              'Packet Length Std', 'Packet Length Variance', 'FIN Flag Count',
-              'SYN Flag Count', 'RST Flag Count', 'PSH Flag Count', 'ACK Flag Count',
-              'URG Flag Count', 'CWE Flag Count', 'ECE Flag Count', 'Down/Up Ratio',
-              'Average Packet Size', 'Avg Fwd Segment Size', 'Avg Bwd Segment Size',
-              'Fwd Header Length.1', 'Fwd Avg Bytes/Bulk', 'Fwd Avg Packets/Bulk',
-              'Fwd Avg Bulk Rate', 'Bwd Avg Bytes/Bulk', 'Bwd Avg Packets/Bulk',
-              'Bwd Avg Bulk Rate', 'Subflow Fwd Packets', 'Subflow Fwd Bytes',
-              'Subflow Bwd Packets', 'Subflow Bwd Bytes', 'Init_Win_bytes_forward',
-              'Init_Win_bytes_backward', 'act_data_pkt_fwd', 'min_seg_size_forward'
-Session info : 'Active Mean', 'Active Std', 'Active Max', 'Active Min', 'Idle Mean',
-              'Idle Std', 'Idle Max', 'Idle Min'
-
-
-
-###### Interview Project for (Quadratyx)[https://quadratyx.com/]
+###### Interview Project for [Quadratyx](https://quadratyx.com)
