@@ -14,15 +14,16 @@ There are different types of network attacks such as Brute Force FTP, Brute Forc
 
 ### Evaluation Metric
 In context to this problem, I think **Recall** must be the considerable metric to be used because we do not want any **False Negatives** i.e., to predict it's not an attack when it is actually an attack. Because, if it's an attack, the system will most probably shut down if Server Side Precautions are not implemented.
+
 <img src='Confusion-Matrix.png' width=150/>
 
 ### Data Analysis Insights with understanding
 - Data has **missing values** as well as **infinity values**, that represents a DoS attack.
 - There are mostly **Contineous Features** as well as some **Categorial Nominal Features**(flags).
-<img src='Packet-Length-Mean.png'/>
-<img src='Packet-Length.png'/>
-<img src='Flags.png'/>
-<img src='Port.png'/>
+<img src='Packet-Length-Mean.png' width=400/>
+<img src='Packet-Length.png' width=400/>
+<img src='Flags.png' width=400/>
+<img src='Port.png' width=200/>
    
 #### Techniques 
 - **SMOTE** for Data Sampling.
@@ -30,7 +31,7 @@ In context to this problem, I think **Recall** must be the considerable metric t
 
 
 ### Different Approaches Used
-- [X] Approach 1: XGBoost     
+- [X] Approach 1: XGBoost
 
 [Approach 1](Notebooks/ids.ipynb)
 
