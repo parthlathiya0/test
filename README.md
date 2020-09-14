@@ -9,11 +9,20 @@ This project can **identify network attacts** with the help of packet data flow 
 ### About Data
 There are different types of network attacks such as Brute Force FTP, Brute Force SSH, DoS, Heartbleed, Web Attack, Infiltration, Botnet and DDoS. But, in this data set we have only provided **DoS attack**.
 - Data is in **csv** format, training samples: 519519 , features: 79 which contains ID, Label, Packet Info Features, Session Info Features.
-- It is an **Imbalanced Dataset**, around 60:40 ratio.
+- It is quite **Imbalanced Dataset**.
+<img src='Unbalanced-Data.png' width=150/>
+
+### Evaluation Metric
+In context to this problem, I think **Recall** must be the considerable metric to be used because we do not want any **False Negatives** i.e., to predict it's not an attack when it is actually an attack. Because, if it's an attack, the system will most probably shut down if Server Side Precautions are not implemented.
+<img src='Confusion-Matrix.png' width=150/>
 
 ### Data Analysis Insights with understanding
 - Data has **missing values** as well as **infinity values**, that represents a DoS attack.
-- There are 74 **Contineous Features**, 4 **Nominal Categorial Features**(flags) and target(Label).
+- There are mostly **Contineous Features** as well as some **Categorial Nominal Features**(flags).
+<img src='Packet-Length-Mean.png'/>
+<img src='Packet-Length.png'/>
+<img src='Flags.png'/>
+<img src='Port.png'/>
    
 #### Techniques 
 - **SMOTE** for Data Sampling.
@@ -23,8 +32,7 @@ There are different types of network attacks such as Brute Force FTP, Brute Forc
 ### Different Approaches Used
 - [X] Approach 1: XGBoost     
 
-[Approach 1](Notebooks/anamoly-detection.ipynb) | [Approach 2](Notebooks/anamoly-detection-using-image.ipynb)
-
+[Approach 1](Notebooks/ids.ipynb)
 
 ## Output
 |ID | Classification|
@@ -44,11 +52,11 @@ Yes, we can indeed detect different Network Attacks using patterns in Data Packe
 
 
 ### Business Understanding
-**DOS**: Flooding the targeted machine or resource with superfluous requests in an attempt to overload systems and prevent some or all legitimate requests from being fulfilled.
-**Some Techniques**:
+**DoS**: Flooding the targeted machine or resource with superfluous requests in an attempt to overload systems and prevent some or all legitimate requests from being fulfilled.
+**Some DoS Techniques**:
 - Holds the connection open by sending valid, incomplete HTTP requests to the server at regular intervals to keep the sockets from closing.
 - By repeatedly sending initial connection request (SYN) packets(Getting ACK packet from server and not sending back 3rd handshake ACK packet while the server waits at that port forever), the attacker is able to overwhelm all available ports on a targeted server machine. [Read More Here](https://www.cloudflare.com/learning/ddos/syn-flood-ddos-attack/)
 - a time delay between successive attacking packets.
 - HTTP slow POST DoS attack: sends large content length header and sends content very slow speed.- the attacker sends traffic consisting of complicated requests to the system.
 
-###### Interview Project for [Quadratyx](https://quadratyx.com)
+###### Interview Project by/for [Quadratyx](https://quadratyx.com)
