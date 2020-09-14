@@ -1,62 +1,57 @@
-# Anamoly-Detection-Petroleum
+# Intrusion Detection System
+This project can **identify network attacts** with the help of packet data flow patterns on the network. Currently it is a binary **Classification Supervised learning** project that'll deal with detecting only DoS attacks, but I'll be more than happy to expand this project to larger domain scale than current if time permits.
 
-## Problem
-Detect the **position** of anamolies in petrol pipelines using data generated from a maintainance device called "Pig" that travels inside the pipeline.
-- Detecting **Wielding**
-- Visualising **Metal loss** and or dents
+## Problem Statement
+**Intrusion Detection Systems** (IDSs) and **Intrusion Prevention Systems** (IPSs) are the most important **defense tools** against the sophisticated and ever-growing network attacks. Given a **Network flow data**, can we detect different network attacks?
 
 <img src='process.gif'/>
 
 ### About Data
-- Data is in **binary** format saved in - 'captured_data.bin' file, captured from 84 sensors for 50_000 milliseconds
-- Pigs directly captured/store data in `binary(.bin)` format
+There are different types of network attacks such as Brute Force FTP, Brute Force SSH, DoS, Heartbleed, Web Attack, Infiltration, Botnet and DDoS. But, in this data set we have only provided **DoS attack**.
+- Data is in **csv** format, training samples: 519519 , features: 79
+- It is an **Imbalanced Dataset**, around 60:40 ratio.
 
 ### Data Analysis Insights with understanding
-- Data varies with time i.e., **Time Series data**
-- We can also see a **repeated pattern** of **flux** at times in all sensors.
+- Data has **missing values** as well as **infinity values**, that represents a DoS attack.
+- There are 74 **Contineous Features**, 4 **Nominal Categorial Features**(flags) and target(Label).
    
 #### Techniques 
-- **Normalised** data for comparision purpose.
-- **Aggregated(sum)** all sensors to amplify anamoly.
-- The **z-score** method is effective here with comparision to *Inter-Quartile Range* method as per the observations.
-- Edge detection using **Sobel**, OpenCV.
+- **SMOTE** for Data Sampling.
+- **Feature Selection** using sklean.feature_selection.mutual_info_classif() of 30 features from 79 features with little to no variation in evaluation metric and then using **Corelation Matrix** to reduce to 19 features removing **Multicolinearity**.
+
 
 ### Different Approaches Used
-- [ ] Approach 1: Using Various Statistical methods like InterQuartile Range, Z-score, etc.     
-- [x] Approach 2: By Filtering anamolies with Sobel Derivatives,Image Processing in OpenCV.
+- [ ] Approach 1: XGBoost     
 
 [Approach 1](Notebooks/anamoly-detection.ipynb) | [Approach 2](Notebooks/anamoly-detection-using-image.ipynb)
 
 
 ## Output
-
-|Pipe | Number|Outlier Position|
-|-----|-------|----------------|
-|0 | 0 | 624 |
-|1 | 0 | 678 |
-|2 | 1 | 5070 |
-|3 | 1 | 5117 |
-|4 | 1 | 8252 |
-|5 | 1 | 8286 |
-|6 | 2 | 11397 |
-|7 | 2 | 14990 |
-|8 | 3 | 15001 |
-|. | . | ... |
-|. | . | ... |
-|. | . | ... |
+|ID | Classification|
+|---|---------------|
+|0	|0 |	BENIGN|
+|1	|1 |	DoS|
+|2	|2 |	BENIGN|
+|3	|3 |	DoS|
+|4	|4 |	DoS|
+|. |. |...|
+|. |. |...|
+|. |. |...|
 
 =======
 <img src='Images/Visualised-Pipes/Analysed/Pipe-8.png' />
 <img src='Images/Visualised-Pipes/Wield-Positions/Pipe-8.png'/>
 
 ## Conclusion
-We can detect position of wielded iron and also visualise the metal loss.
+We can detect different Network Attacks using patterns in Data Packet Flows in Network.
 
 ### Business Understanding
-- Many pipes are wielded together to form a pipeline.
-- Pigging is a concept in pipeline maintenance that involves the use of devices known as pigs, which clean pipelines and are capable of checking pipeline condition from inside.
-- Pigs inspects pipelines by receiving magnetic flux from the walls of the pipe.
-- Applications of Pigging include oil & gas, lube oil, chemical plants and hygienic applications such as pharmaceutical or food, etc.
+**DOS**: Flooding the targeted machine or resource with superfluous requests in an attempt to overload systems and prevent some or all legitimate requests from being fulfilled.
+**Some Techniques**:
+- Holds the connection open by sending valid, incomplete HTTP requests to the server at regular intervals to keep the sockets from closing.
+- By repeatedly sending initial connection request (SYN) packets(Getting ACK packet from server and not sending back 3rd handshake ACK packet while the server waits at that port forever), the attacker is able to overwhelm all available ports on a targeted server machine. [Read More Here](https://www.cloudflare.com/learning/ddos/syn-flood-ddos-attack/)
+- a time delay between successive attacking packets.
+- HTTP slow POST DoS attack: sends large content length header and sends content very slow speed.- the attacker sends traffic consisting of complicated requests to the system.
 
 <div style="display:flex"><img src='Images/petrol-pipe.jpg' width=200 height=200/>
 <img src='Images/pig.jpg' width=200 height=200/></div>
