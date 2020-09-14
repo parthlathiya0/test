@@ -20,10 +20,10 @@ In context to this problem, I think **Recall** must be the considerable metric t
 ### Data Analysis Insights with understanding
 - Data has **missing values** as well as **infinity values**, that represents a DoS attack.
 - There are mostly **Contineous Features** as well as some **Categorial Nominal Features**(flags).
-<img src='Packet-Length-Mean.png' width=400/>
-<img src='Packet-Length.png' width=400/>
-<img src='Flags.png' width=400/>
-<img src='Port.png' width=200/>
+<img src='Packet-Length-Mean.png'/>
+<img src='Packet-Length.png' width=600/>
+<img src='Flags.png' width=600/>
+<img src='Port.png' width=400/>
    
 #### Techniques 
 - **SMOTE** for Data Sampling.
