@@ -1,60 +1,31 @@
-# Intrusion Detection System
-This project can **identify network attacts** with the help of packet data flow patterns on the network. Currently it is a binary **Classification Supervised learning** project that'll deal with detecting only DoS attacks, but I'll be more than happy to expand this project to larger domain scale than current if time permits.
+# COVID19 Tweets Data Analysis
+This project asks to demonstrate the skill of finding Insights from twitter data.
 
 ## Problem Statement
-**Intrusion Detection Systems** (IDSs) and **Intrusion Prevention Systems** (IPSs) are the most important **defense tools** against the sophisticated and ever-growing network attacks. Given a **Network flow data**, can we detect different network attacks?
+Perform **analysis** on people tweets about COVID-19. Derive breakthrough insights like finding what kind of subjects use this hashtag, look at the geographical distribution (country), cluster and evaluate sentiments, look at trends (on an average, at least 7 substantial insights).
 
-<img src='IDS.png'/>
+<img src='Tweet-Analysis.png'/>
 
 ### About Data
-There are different types of network attacks such as Brute Force FTP, Brute Force SSH, DoS, Heartbleed, Web Attack, Infiltration, Botnet and DDoS. But, in this data set we have only provided **DoS attack**.
-- Data is in **csv** format, training samples: 519519 , features: 79 which contains ID, Label, Packet Info Features, Session Info Features.
-- It is quite **Imbalanced Dataset**.
-<img src='Unbalanced-Data.png' width=150/>
+Data is different attributes of the tweets, it's username, likes, followers, location, etc.
+- Data is in **csv** format, training samples: 179109 , features: 13 which various attributes.
 
-### Evaluation Metric
-In context to this problem, I think **Recall** must be the considerable metric to be used because we do not want any **False Negatives** i.e., to predict it's not an attack when it is actually an attack. Because, if it's an attack, the system will most probably shut down if Server Side Precautions are not implemented.
-
-<img src='Confusion-Matrix.png' width=250/>
+### Feature Engineering
+To get more meaningful information out of data, I had to feature engineer 
 
 ### Data Analysis Insights with understanding
-- Data has **missing values** as well as **infinity values**, that represents a DoS attack.
-- There are mostly **Contineous Features** as well as some **Categorial Nominal Features**(flags).
-<img src='ezgif.com-gif-maker.gif'/>
+- Data has **missing values**.
+- There are mostly **Contineous Features** as well as some **Categorial Nominal Features**.
+<img src='Eda.gif'/>
    
-#### Techniques 
-- **SMOTE** for Data Sampling.
-- **Feature Selection** using sklean.feature_selection.mutual_info_classif() of 30 features from 79 features with little to no variation in evaluation metric and then using **Corelation Matrix** to reduce to 19 features removing **Multicolinearity**.
-
-
-### Different Approaches Used
-- [X] Approach 1: XGBoost
-
-[Approach 1](Notebooks/ids.ipynb)
-
-## Output
-|ID | Classification|
-|---|---------------|
-|0	|	BENIGN|
-|1	|	DoS|
-|2	|	BENIGN|
-|3 |	DoS|
-|4 |	DoS|
-|. |...|
-|. |...|
-|. |...|
-
-
 ## Conclusion
-Yes, we can indeed detect different Network Attacks using patterns in Data Packet Flows in Network.
+**THE STORY TELLING**        
+I have analysed the tweets dating from 24st July 2020 to 30th August 2020. Among all these tweets, 50% of the overall tweets were sent combined `Phones and Tablets`, 35% from `twitter website` and rest from other `3rd party sources`. However, top tweeters use more `twitter website` and `other sources`. This might be because they are professionals and have their own platforms, automations, etc.     
 
+A very small sample of the users are verified in the total population, but it is not surprising that almost half users are verified in the top twitters list. They post more posts and are generally oldest amongst others. We can also notice that verified users have high followers but less number of friends. Also, the verified accounts that are old enough had a steep inclined verticle follower growth in this time span. 
 
-### Business Understanding
-**DoS**: Flooding the targeted machine or resource with superfluous requests in an attempt to overload systems and prevent some or all legitimate requests from being fulfilled.
-**Some DoS Techniques**:
-- Holds the connection open by sending valid, incomplete HTTP requests to the server at regular intervals to keep the sockets from closing.
-- By repeatedly sending initial connection request (SYN) packets(Getting ACK packet from server and not sending back 3rd handshake ACK packet while the server waits at that port forever), the attacker is able to overwhelm all available ports on a targeted server machine. [Read More Here](https://www.cloudflare.com/learning/ddos/syn-flood-ddos-attack/)
-- a time delay between successive attacking packets.
-- HTTP slow POST DoS attack: sends large content length header and sends content very slow speed.- the attacker sends traffic consisting of complicated requests to the system.
+Most of the tweets came from **geographical regions** of `India and USA` mainly from user accounts `GlobalPandemic.NET` and `Coronavirus Updates`. They posted their tweets each day around 4-6 am and 4-5 pm using the hashtags `covid19` and `coronavirus`. It is also intersting to note that most tweets mentioned `realdonaldtrump` that to almost daily. We can also see that posting more posts does not grow the account as much. The most growing accounts in these days are `Anonymous`, `CDC` and `Ministry of Health` and the most liked accounts are `ignazio marong`, `scarlet monahan` and `IAM Platform`.
 
-###### Interview Project by/for [Quadratyx](https://quadratyx.com)
+If we analyse the **sentiment** of tweets, we that that only 17% of tweets possess negative sentiment from the top 10 sources and 20% of population of likes these tweets and the ratio of tweets for positive, neutral and negative sentiments for each day also remains almost the same. 
+
+###### Interview Project by/for [Infeedo](https://infeedo.com/)
