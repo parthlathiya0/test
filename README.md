@@ -16,7 +16,7 @@ To get more meaningful information out of data, I had to feature engineer
 ### Data Analysis Insights with understanding
 - Data has **missing values**.
 - There are mostly **Contineous Features** as well as some **Categorial Nominal Features**.
-<img src='Eda.gif'/>
+<img src='Eda.gif' width='200'/>
    
 ## Conclusion
 **THE STORY TELLING**        
